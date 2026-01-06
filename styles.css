@@ -1,0 +1,165 @@
+:root { --idxw: 4ch; }
+body { margin: 24px; font-family: Georgia, serif; line-height: 1.5; }
+h1 { margin: 0 0 0.25rem 0; }
+h2 { margin-top: 2.0rem; }
+h3 { margin-top: 1.6rem; }
+.container { max-width: 980px; }
+.foreword p { margin: 0.55rem 0; }
+.foreword p.quote { margin-left: 1.2rem; font-style: italic; }
+.summary { font-style: italic; margin: 0.6rem 0 0.8rem 0; }
+.break { height: 0.9rem; }
+.line { display: flex; gap: .75rem; align-items: baseline; }
+.idx { width: var(--idxw); text-align: right; opacity: .65; user-select: none; -webkit-user-select: none; -ms-user-select: none; flex: 0 0 auto;
+}
+.txt { flex: 1 1 auto; white-space: pre-wrap; }
+.note { font-size: 0.95rem; opacity: .8; margin-top: 0.75rem; }
+hr { margin: 2rem 0; opacity: .2; }
+.toc { margin: 1.5rem 0 2rem 0; padding: 1rem; border: 1px solid #ddd; background: #fafafa; }
+.toc h2 { margin-top: 0; }
+.toc ol { columns: 2; -webkit-columns: 2; -moz-columns: 2; }
+.toc li { margin: 0.2rem 0; } .dropcap{ float:left; font-size: 3.2rem; line-height: 0.9; padding: 0.15rem 0.4rem 0 0; font-weight: 700;
+}
+
+/* --- Kalevala theme polish (v14) --- */
+body{
+  background:
+    radial-gradient(1200px 600px at 50% -200px, rgba(0,0,0,.06), rgba(0,0,0,0) 70%),
+    radial-gradient(900px 500px at 50% calc(100% + 240px), rgba(0,0,0,.05), rgba(0,0,0,0) 70%),
+    linear-gradient(#f6f1e7, #f3ede1);
+}
+.container{
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.10);
+  padding: 28px 28px 34px 28px;
+  position: relative;
+  overflow: hidden;
+}
+/* subtle “ornament bands” at top and bottom of the container */
+.container::before,
+.container::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  height:22px;
+  opacity:.55;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,.22) 0px, rgba(0,0,0,.22) 2px,
+      rgba(0,0,0,0) 2px, rgba(0,0,0,0) 10px
+    ),
+    linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.25), rgba(0,0,0,0));
+}
+.container::before{ top:0; }
+.container::after{ bottom:0; transform: scaleY(-1); }
+h1{
+  letter-spacing: .02em;
+}
+h3{
+  letter-spacing: .03em;
+  font-variant: small-caps;
+  border-bottom: 1px solid rgba(0,0,0,.18);
+  padding-bottom: .2rem;
+}
+/* TOC as “book index” */
+.toc{
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.65);
+  position: relative;
+}
+.toc::before{
+  content:"";
+  position:absolute;
+  left: 14px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background: rgba(0,0,0,.15);
+}
+.toc ol{
+  padding-left: 1.6rem;
+}
+.toc a{
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0);
+}
+.toc a:hover{
+  border-bottom-color: rgba(0,0,0,.35);
+}
+/* Drop cap: add a gentle “illuminated” feel, still minimal */
+.dropcap{
+  padding: 0.18rem 0.45rem 0.08rem 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,.7);
+}
+/* Rune end marker */
+.rune-end{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 16px;
+  margin: 18px 0 8px 0;
+  padding: 10px 0;
+}
+.rune-mark{
+  letter-spacing: .25em;
+  opacity: .65;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.backtotoc{
+  font-size: .92rem;
+  opacity: .8;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,.0);
+}
+.backtotoc:hover{
+  opacity: 1;
+  border-bottom-color: rgba(0,0,0,.35);
+}
+
+
+.notice{
+  margin: 1.4rem 0 1.6rem 0;
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,.85);
+  border-left: 4px solid rgba(0,0,0,.45);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+.notice p{
+  margin: .45rem 0;
+}
+.notice strong{
+  font-weight: 600;
+}
+
+/* --- Multi-page navigation --- */
+.pagenav{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 18px 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 12px;
+  background: rgba(255,255,255,.55);
+}
+.navlink{
+  text-decoration:none;
+  border-bottom: 1px solid rgba(0,0,0,0);
+  opacity: .9;
+  font-weight: 600;
+}
+.navlink:hover{ border-bottom-color: rgba(0,0,0,.35); opacity: 1; }
+.navspacer{ width: 160px; }
+
+
+/* --- TOC tweaks for multi-page --- */
+.toc-foreword{ list-style: none; padding-left: 0; margin: 0 0 0.5rem 0; }
+.toc-foreword li{ margin: 0.2rem 0; }
+.toc-runes{ columns: 2; -webkit-columns: 2; -moz-columns: 2; }
