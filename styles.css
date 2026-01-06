@@ -163,3 +163,6 @@ h3{
 .toc-foreword{ list-style: none; padding-left: 0; margin: 0 0 0.5rem 0; }
 .toc-foreword li{ margin: 0.2rem 0; }
 .toc-runes{ columns: 2; -webkit-columns: 2; -moz-columns: 2; }
+
+.notice-purpose{ font-size: 1.12rem; margin-top: .8rem; }
+.notice-purpose strong{ letter-spacing: .02em; }
