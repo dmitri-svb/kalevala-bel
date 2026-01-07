@@ -166,3 +166,18 @@ h3{
 
 .notice-purpose{ font-size: 1.12rem; margin-top: .8rem; }
 .notice-purpose strong{ letter-spacing: .02em; }
+
+/* --- Notice injected via CSS content (Option C) --- */
+.notice{
+  margin: 1.4rem 0 1.6rem 0;
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,.85);
+  border-left: 4px solid rgba(0,0,0,.45);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+.notice::before{
+  content: "Гэтая публікацыя з глыбокай удзячнасцю і цеплынёй прысвечаная памяці перакладчыка Якуба Лапаткі (1944–2024), які аддаў многія гады свайго жыцця гэтай працы, уклаўшы ў яе сэрца, талент і любоў да слова. За два месяцы да свайго адыходу спадар Якуб ласкава даў нам дазвол апублікаваць гэты пераклад — і мы з вялікай павагай выконваем яго волю.\A \A Па ўсіх пытаннях, якія датычацца правоў на публікацыю, калі ласка, звяртайцеся да нас: info[at]SverigesBelarusier.eu";
+  white-space: pre-line;
+  display: block;
+}
