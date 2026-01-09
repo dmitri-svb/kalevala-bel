@@ -1,4 +1,19 @@
 :root { --idxw: 4ch; }
+
+
+@font-face{
+  font-family: "Satyr SP";
+  src: url("fonts/SatyrSP.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family: "Runtti SP";
+  src: url("fonts/RunttiSP-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 body { margin: 24px; font-family: Georgia, serif; line-height: 1.5; }
 h1 { margin: 0 0 0.25rem 0; }
 h2 { margin-top: 2.0rem; }
@@ -9,6 +24,31 @@ h3 { margin-top: 1.6rem; }
 .summary { font-style: italic; margin: 0.6rem 0 0.8rem 0; }
 .break { height: 0.9rem; }
 .line { display: flex; gap: .75rem; align-items: baseline; }
+
+/* Dropcap layout (centered on first line) */
+.line.has-dropcap .txt{
+  position: relative;
+  padding-left: 3.2rem; /* reserved space for the initial */
+}
+.line.has-dropcap .dropcap{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.8rem;
+  text-align: center;
+
+  font-family: "Runtti SP", serif;
+  font-size: 3.1rem;
+  line-height: 1;
+  font-weight: 700;
+
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+
 .idx { width: var(--idxw); text-align: right; opacity: .65; user-select: none; -webkit-user-select: none; -ms-user-select: none; flex: 0 0 auto;
 }
 .txt { flex: 1 1 auto; white-space: pre-wrap; }
@@ -17,10 +57,7 @@ hr { margin: 2rem 0; opacity: .2; }
 .toc { margin: 1.5rem 0 2rem 0; padding: 1rem; border: 1px solid #ddd; background: #fafafa; }
 .toc h2 { margin-top: 0; }
 .toc ol { columns: 2; -webkit-columns: 2; -moz-columns: 2; }
-.toc li { margin: 0.2rem 0; } .dropcap{ float:left; font-size: 3.2rem; line-height: 0.9; padding: 0.15rem 0.4rem 0 0; font-weight: 700;
-}
-
-/* --- Kalevala theme polish (v14) --- */
+.toc li { margin: 0.2rem 0; } /* --- Kalevala theme polish (v14) --- */
 body{
   background:
     radial-gradient(1200px 600px at 50% -200px, rgba(0,0,0,.06), rgba(0,0,0,0) 70%),
@@ -90,10 +127,6 @@ h3{
   border-bottom-color: rgba(0,0,0,.35);
 }
 /* Drop cap: add a gentle “illuminated” feel, still minimal */
-.dropcap{
-  padding: 0.18rem 0.45rem 0.08rem 0;
-  text-shadow: 0 1px 0 rgba(255,255,255,.7);
-}
 /* Rune end marker */
 .rune-end{
   display:flex;
@@ -177,7 +210,71 @@ h3{
   box-shadow: 0 4px 10px rgba(0,0,0,.06);
 }
 .notice::before{
-  content: "Гэтая публікацыя з глыбокай удзячнасцю і цеплынёй прысвечаная памяці перакладчыка Якуба Лапаткі (1944–2024), які аддаў многія гады свайго жыцця гэтай працы, уклаўшы ў яе сэрца, талент і любоў да слова. За два месяцы да свайго адыходу спадар Якуб ласкава даў нам дазвол апублікаваць гэты пераклад — і мы з вялікай павагай выконваем яго волю.\A \A Па ўсіх пытаннях, якія датычацца правоў на публікацыю, калі ласка, звяртайцеся да нас: info[at]SverigesBelarusier.eu";
+  content: "Гэтая публікацыя з глыбокай удзячнасцю і цеплынёй прысвечаная памяці перакладчыка Якуба Лапаткі (1944–2024), які аддаў многія гады свайго жыцця гэтай працы, уклаўшы ў яе сэрца, талент і любоў да слова. За два месяцы да свайго адыходу спадар Якуб ласкава даў нам дазвол апублікаваць гэты пераклад — і мы з вялікай павагай выконваем яго волю.\A \A Па ўсіх пытаннях, якія датычацца гэтай публікацыі, калі ласка, звяртайцеся да нас праз info[at]SverigesBelarusier.eu";
   white-space: pre-line;
   display: block;
+}
+
+/* Rune titles + TOC entries */
+.rune-title, .toc a{
+  font-family: "Satyr SP", serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+
+/* Rune title size */
+.rune-title{ font-size: 1.5em; }
+/* TOC layout (single column, title + summary clickable) */
+.toc .grid{ display:block !important; }
+.toc-list{ list-style: none; padding-left: 0; margin: .6rem 0 0 0; }
+.toc-list li{ margin: .25rem 0; }
+
+.toc-link{
+  display:block;
+  padding:.65rem .75rem;
+  border-radius:12px;
+  text-decoration:none;
+}
+.toc-link:hover{ text-decoration:none; }
+
+.toc-num{
+  font-weight: 700;
+  margin-right: .35rem;
+}
+
+.toc-title{
+  display:inline;
+}
+
+.toc-sum{
+  display:block;
+  margin-top: .25rem;
+  letter-spacing: 0;
+  opacity: .92;
+  line-height: 1.35;
+}
+
+/* Foreword entry (no numbering) */
+.toc-foreword{ margin: .4rem 0 .8rem 0; }
+.toc-link.foreword .toc-sum{ display:none; }
+/* TOC overrides v3 */
+.toc{ column-count: 1; -webkit-column-count: 1; -moz-column-count: 1; }
+.toc-list{ columns: 1 !important; -webkit-columns: 1 !important; -moz-columns: 1 !important; }
+/* TOC summary styling */
+.toc-sum{
+font-style: italic; 
+font-family: Georgia, serif; 
+font-size: 1rem; /* always equals default body size */ 
+font-weight: normal;
+text-decoration: none !important; 
+color: black;
+}
+
+.toc-link:hover .toc-title,
+.toc-link:hover .toc-num{
+  text-decoration: underline;
+}
+.toc-link:hover .toc-sum{
+  text-decoration: none !important;
 }
