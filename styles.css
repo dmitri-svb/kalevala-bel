@@ -278,3 +278,22 @@ color: black;
 .toc-link:hover .toc-sum{
   text-decoration: none !important;
 }
+
+/* Illustrations (public domain, Akseli Gallen-Kallela) */
+figure.illustration{
+  margin: 1.5rem auto;
+  max-width: 900px;
+  text-align: center;
+}
+figure.illustration img{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+figure.illustration figcaption{
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-size: 0.95em;
+  line-height: 1.3;
+}
